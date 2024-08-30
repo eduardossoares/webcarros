@@ -19,7 +19,7 @@ const schema = z.object({
     password: z.string().min(6, "A senha deve contar no mínimo 6 caracteres.").nonempty("O campo 'senha é obrigatório.'")
 })
 
-type FormData = z.infer<typeof schema>
+type FormData = z.infer<typeof schema>;
 
 
 export function Register() {
@@ -31,7 +31,7 @@ export function Register() {
 
     const { register, handleSubmit, formState: { errors } } = useForm<FormData>({
         resolver: zodResolver(schema),
-        mode: "onChange",
+        mode: "onSubmit",
     })
 
     useEffect(() => {

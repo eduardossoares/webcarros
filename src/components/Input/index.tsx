@@ -13,7 +13,8 @@ export function Input({ type, placeholder, name, register, rules, error }: Input
     return(
         <div className="w-full">
             <input 
-            className="w-full h-10 px-4 rounded-md outline-none"
+            className="w-full h-10 px-4 rounded-md outline-none border placeholder-zinc-300 placeholder:font-thin
+            text-zinc-400"
             type={type}
             placeholder={placeholder}
             {...register(name, rules)}

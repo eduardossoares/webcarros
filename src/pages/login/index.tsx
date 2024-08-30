@@ -17,7 +17,7 @@ const schema = z.object({
     password: z.string().nonempty("O campo 'senha' é obrigatório."),
 })
 
-type FormData = z.infer<typeof schema>
+type FormData = z.infer<typeof schema>;
 
 
 export function Login() {
@@ -28,7 +28,7 @@ export function Login() {
 
     const { register, handleSubmit, formState: { errors } } = useForm<FormData>({
         resolver: zodResolver(schema),
-        mode: "onChange",
+        mode: "onSubmit",
     });
 
     useEffect(() => {
