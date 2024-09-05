@@ -13,6 +13,8 @@ import { auth } from "../../services/firebaseConnection";
 import { createUserWithEmailAndPassword, updateProfile, signOut } from "firebase/auth";
 import { AuthContext } from "../../contexts/AuthContext";
 
+import toast from "react-hot-toast";
+
 const schema = z.object({
     name: z.string().nonempty("O campo 'nome' é obrigatório."),
     email: z.string().email("Insira um email válido."),
@@ -63,12 +65,9 @@ export function Register() {
             email: data.email,
             uid: user.user.uid,
         })
-
-        console.log("Cadastrado com Sucesso!")
         navigate("/dashboard", { replace: true })
       })
       .catch((error) => {
-        console.log("Erro ao Cadastrar o Usuário!")
         console.log(`Erro: ${error}`);
       })
     }

@@ -5,7 +5,10 @@ import { Link } from "react-router-dom";
 
 import { useState, useEffect } from "react";
 
-import { collection, query, addDoc, orderBy, getDocs, QuerySnapshot, DocumentData } from "firebase/firestore";
+import {
+    collection, query, addDoc, orderBy, getDocs, QuerySnapshot,
+    where, DocumentData
+} from "firebase/firestore";
 import { db } from "../../services/firebaseConnection";
 
 interface CarsProps {
@@ -25,36 +28,67 @@ interface CarImageProps {
 export function Home() {
     const [cars, setCars] = useState<CarsProps[]>([]);
     const [loadingImages, setLoadingImages] = useState<string[]>([]);
+    const [input, setInput] = useState("");
 
     useEffect(() => {
-        const loadCars = () => {
-            const carsRef = collection(db, "cars");
-            const queryRef = query(carsRef, orderBy("created", "desc"));
-
-            getDocs(queryRef)
-                .then((snapshot: QuerySnapshot<DocumentData>) => {
-                    let listCars = [] as CarsProps[];
-
-                    snapshot.forEach(doc => {
-                        listCars.push({
-                            id: doc.id,
-                            name: doc.data().name,
-                            price: doc.data().price,
-                            images: doc.data().images,
-                            uid: doc.data().uid,
-                        })
-                    })
-                    setCars(listCars);
-                })
-                .catch(() => {
-
-                })
-        }
         loadCars();
     }, []);
 
-    const handleImageLoad = (id: string) => {
-        setLoadingImages((prevImageLoaded) => [...prevImageLoaded, id])
+    const loadCars = () => {
+        const carsRef = collection(db, "cars");
+        const queryRef = query(carsRef, orderBy("created", "desc"));
+
+        getDocs(queryRef)
+            .then((snapshot: QuerySnapshot<DocumentData>) => {
+                let listCars = [] as CarsProps[];
+
+                snapshot.forEach(doc => {
+                    listCars.push({
+                        id: doc.id,
+                        name: doc.data().name,
+                        price: doc.data().price,
+                        images: doc.data().images,
+                        uid: doc.data().uid,
+                    })
+                })
+                setCars(listCars);
+            })
+            .catch(() => {
+
+            })
+    }
+
+    const handleSearchCar = async () => {
+        if (input === "") {
+            loadCars();
+            return;
+        }
+
+        setCars([]);
+        setLoadingImages([]);
+
+        const q = query(collection(db, "cars"),
+            where("name", ">=", input.toUpperCase()),
+            where("name", "<=", input.toUpperCase() + "\uf8ff"),
+        );
+
+        const querySnapshot = await getDocs(q);
+
+        let listCars = [] as CarsProps[];
+
+        querySnapshot.forEach((doc) => {
+            listCars.push({
+                id: doc.id,
+                name: doc.data().name,
+                price: doc.data().price,
+                images: doc.data().images,
+                uid: doc.data().uid,
+            })
+        })
+
+        setCars(listCars);
+
+
     }
 
     return (
@@ -63,12 +97,13 @@ export function Home() {
             rounded-md gap-x-12 mb-6">
                 <div className="flex items-center gap-x-4 w-2 sm:flex-1">
                     <IoSearchSharp size={22} className="text-zinc-300 hidden md:flex" />
-                    <input type="text" placeholder="Digite o nome do carro..."
+                    <input type="text" placeholder="Digite o nome do carro..." value={input}
+                        onChange={(e) => setInput(e.target.value)}
                         className="placeholder-zinc-300 outline-none flex-1" />
                 </div>
                 <div className="w-px bg-zinc-200 h-6 hidden md:flex"></div>
                 <button className="bg-pink-700 text-white font-semibold w-[4.5rem] sm:w-32 h-10 rounded-md
-                hover:bg-pink-800 duration-300">Buscar</button>
+                hover:bg-pink-800 duration-300" onClick={handleSearchCar}>Buscar</button>
             </section>
 
             <h1 className="text-center font-poppins

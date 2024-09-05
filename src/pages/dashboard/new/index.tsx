@@ -23,6 +23,9 @@ import { v4 as uuidV4 } from "uuid";
 
 import { addDoc, collection } from "firebase/firestore";
 
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
+
 
 const schema = z.object({
     name: z.string().nonempty("O campo 'Nome' é obrigatório."),
@@ -49,6 +52,7 @@ interface ImageItemProps {
 
 export function NewCar() {
     const { user } = useContext(AuthContext);
+    const navigate = useNavigate();
 
     const { register, handleSubmit, formState: { errors }, reset } = useForm<FormData>({
         resolver: zodResolver(schema),
@@ -59,7 +63,7 @@ export function NewCar() {
 
     const onSubmit = (data: FormData) => {
         if(carImages.length === 0) {
-            alert("Envie alguma imagem deste carro!");
+            toast.error("Envie uma imagem deste carro!");
             return;
         }
 
@@ -72,7 +76,7 @@ export function NewCar() {
         })
 
         addDoc(collection(db, "cars"), {
-            name: data.name,
+            name: data.name.toUpperCase(),
             model: data.model,
             price: data.price,
             phone: data.phone,
@@ -88,7 +92,8 @@ export function NewCar() {
         .then(() => {
             reset();
             setCarImages([]);
-            console.log("Cadastrado com Sucesso!")
+            toast.success(`${data.name.toUpperCase} cadastrado(a) com sucesso!`);
+            navigate("/");
         })
         .catch((error) => {
             console.log(`Erro Ao Cadastrar: ${error}`);
