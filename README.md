@@ -62,12 +62,12 @@ O projeto estará disponível em http://localhost:3000.
 
 ## 📚 Estrutura do Projeto
 src/
-  components/: Componentes reutilizáveis da interface.
-  contexts/: Definição e gerenciamento dos contextos usando ContextAPI.
-  pages/: Páginas da aplicação (Home, Login, etc.).
-  services/: Configuração e integração com o Firebase.
-  assets/: Arquivos presentes no projeto.
-  routes/: Configuração de rotas privadas.
+  - components/: Componentes reutilizáveis da interface.
+  - contexts/: Definição e gerenciamento dos contextos usando ContextAPI.
+  - pages/: Páginas da aplicação (Home, Login, etc.).
+  - services/: Configuração e integração com o Firebase.
+  - assets/: Arquivos presentes no projeto.
+  - routes/: Configuração de rotas privadas.
 
 ## 🧑‍💻 Contribuição
 Contribuições são bem-vindas! Se quiser melhorar algo, siga os passos abaixo:
