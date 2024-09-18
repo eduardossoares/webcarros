@@ -4,7 +4,7 @@ import { PainelHeader } from "../../components/PainelHeader";
 
 import { FiTrash2 } from "react-icons/fi";
 
-import { collection, getDocs, where, query, orderBy, doc, deleteDoc } from "firebase/firestore";
+import { collection, getDocs, where, query, doc, deleteDoc } from "firebase/firestore";
 import { db } from "../../services/firebaseConnection";
 import { AuthContext } from "../../contexts/AuthContext";
 
@@ -64,23 +64,25 @@ export function Dashboard() {
     return (
         <Container>
             <PainelHeader />
-            <main className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 mb-6 mt-4">
+            <main className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 mb-6 mt-4">
 
                 {cars.map(car => (
-                    <section className="relative w-full h-full duration-1000 cursor-pointer">
-                        <button className="absolute text-4xl top-2 right-2 bg-white h-12 w-12 flex items-center
-                        justify-center rounded-full text-red-600 z-50 hover:scale-110 duration-500 hover:drop-shadow-md
-                        lg:h-10 lg:w-10 lg:text-2xl" onClick={() => handleDeletCar(car.id)}>
-                            <FiTrash2 />
-                        </button>
-                        <img src={car.images[0].url} alt="Carro" className="rounded-xl m-auto h-full" />
-                        <div className="h-8 absolute bg-zinc-300 w-full bottom-0 flex items-center
-                         justify-between px-4 rounded-b-xl text-zinc-700">
-                            <p className="left-4 bottom-2 text-base font-semibold font-poppins">{car.name}</p>
-                            <span className="right-4 bottom-2 text-base font-semibold font-poppins">{Number(car.price).toLocaleString("pt-BR", {
-                                style:
-                                    "currency", currency: "BRL"
-                            })}</span>
+                    <section className="relative w-72 h-full duration-1000 cursor-pointer rounded bg-white px-1 pt-1
+                    border border-pink-700">
+                        <img src={car.images[0].url} alt="Carro" className="m-auto h-52 w-full rounded-sm" />
+                        <div className="px-2 py-2">
+                            <div className="flex justify-between items-center text-pink-700">
+                                <div>
+                                    <p className="text-md font-medium font-poppins">{car.name}</p>
+                                    <span className="text-md font-bold font-poppins">{Number(car.price).toLocaleString("pt-BR", {
+                                        style:
+                                            "currency", currency: "BRL"
+                                    })}
+                                    </span>
+                                </div>
+                                <FiTrash2 color="#be185d
+"                                className="text-3xl" onClick={() => handleDeletCar(car.id)} />
+                            </div>
                         </div>
                     </section>
                 ))}

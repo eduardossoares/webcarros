@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 import {
-    collection, query, addDoc, orderBy, getDocs, QuerySnapshot,
+    collection, query, orderBy, getDocs, QuerySnapshot,
     where, DocumentData
 } from "firebase/firestore";
 import { db } from "../../services/firebaseConnection";
@@ -27,7 +27,7 @@ interface CarImageProps {
 
 export function Home() {
     const [cars, setCars] = useState<CarsProps[]>([]);
-    const [loadingImages, setLoadingImages] = useState<string[]>([]);
+    const [, setLoadingImages] = useState<string[]>([]);
     const [input, setInput] = useState("");
 
     useEffect(() => {

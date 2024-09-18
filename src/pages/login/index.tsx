@@ -11,7 +11,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 
 import { signInWithEmailAndPassword, signOut } from "firebase/auth";
 import { auth } from "../../services/firebaseConnection";
-import toast from "react-hot-toast";
 
 const schema = z.object({
     email: z.string().email("Insira um email válido."),
