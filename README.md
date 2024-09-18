@@ -35,20 +35,20 @@ Siga os passos abaixo para rodar o projeto localmente:
    git clone https://github.com/eduardossoares/webcarros.git
    ```
 
-2. Acesse a pasta do projeto:
+1. Acesse a pasta do projeto:
    ```bash
    cd webcarros
    ```
 
-3. Instale as dependências:
+1. Instale as dependências:
    ```bash
-    npm install
+   npm install
    ```
 
-4. Execute o projeto:
-  ```bash
-    npm run dev
-  ```
+1. Execute o projeto em desenvolvimento:
+   ```bash
+   npm run dev
+   ```
 
 O projeto estará disponível em http://localhost:3000.
 
