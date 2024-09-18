@@ -23,8 +23,8 @@ Um marketplace de carros onde os usuários podem criar contas, acessar a home, l
 
 ## 📸 Capturas de Tela
 
-![Home Page](link-para-imagem)  
-*Exemplo da página inicial com a listagem de carros disponíveis.*
+![image](https://github.com/user-attachments/assets/b52d5f7b-1942-4c53-8887-2111230ecc5e)
+
 
 ## 🚀 Instalação
 
