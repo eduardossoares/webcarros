@@ -69,13 +69,5 @@ src/
   - assets/: Arquivos presentes no projeto.
   - routes/: Configuração de rotas privadas.
 
-## 🧑‍💻 Contribuição
-Contribuições são bem-vindas! Se quiser melhorar algo, siga os passos abaixo:
-
-1. Faça um fork do projeto.
-2. Crie uma branch com sua feature (git checkout -b feature/nova-feature).
-3. Faça o commit das suas mudanças (git commit -m 'Adiciona nova feature').
-4. Envie um pull request.
-
-📝 Licença
+## 📝 Licença
 Este projeto está licenciado sob a licença MIT. Veja o arquivo LICENSE para mais detalhes.
