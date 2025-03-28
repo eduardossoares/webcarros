@@ -1,73 +1,33 @@
-# 🚗 Webcarros
+# Webcarros 🚗
 
-Um marketplace de carros onde os usuários podem criar contas, acessar a home, localizar veículos à venda e gerenciar seus próprios anúncios. O projeto foi desenvolvido com foco na simplicidade e eficiência, usando **React.js**, **TypeScript** e uma série de ferramentas modernas para garantir uma experiência rápida e agradável.
+Um marketplace de carros simples e eficiente, construído com **React.js** e **TypeScript**. O Webcarros permite que usuários criem contas, explorem veículos à venda, cadastrem seus próprios anúncios e gerenciem tudo com uma interface responsiva. É um projeto que une usabilidade e tecnologia moderna, com autenticação segura via **Firebase**.
 
-## 🎯 Funcionalidades
+![React](https://img.shields.io/badge/React-18-61DAFB) ![TypeScript](https://img.shields.io/badge/TypeScript-5-blue) ![Firebase](https://img.shields.io/badge/Firebase-9-orange)
 
-- Criação e gerenciamento de contas de usuários
-- Listagem de carros disponíveis para venda
-- Barra de pesquisa para encontrar carros específicos
-- Sistema de cadastro de carros para qualquer usuário
-- Lista de carros cadastrados com a opção de excluir quando desejar
-- Interface amigável e responsiva
-- Autenticação segura com **Firebase**
+## Sobre o Projeto
 
-## 🛠️ Tecnologias Utilizadas
+O Webcarros é um frontend dinâmico que simula um marketplace real, onde qualquer um pode anunciar carros ou encontrar o veículo ideal. Desenvolvido com **React.js** e estilizado com **Tailwind CSS**, ele entrega uma experiência rápida e agradável. O **Firebase** cuida da autenticação e dos dados, enquanto ferramentas como **React Hook Form** e **Zod** garantem formulários precisos.
 
-- **React.js** com **TypeScript**: Framework e linguagem para a construção da interface do usuário.
-- **TailwindCSS**: Estilização da interface de forma rápida e eficiente.
-- **Figma**: Criação do design UI/UX do projeto.
-- **React-Hook-Form** e **Zod**: Validação de formulários com foco em usabilidade e precisão.
-- **Firebase**: Autenticação de usuários e armazenamento de dados.
-- **ContextAPI**: Gerenciamento de estado global da aplicação.
+## Funcionalidades Principais
 
-## 📸 Capturas de Tela
+- **Contas de Usuário**: Crie e gerencie sua conta com segurança.
+- **Catálogo de Carros**: Veja todos os veículos disponíveis para venda.
+- **Busca Rápida**: Encontre carros específicos com a barra de pesquisa.
+- **Gestão de Anúncios**: Cadastre e exclua seus próprios carros facilmente.
+- **Design Responsivo**: Funciona bem em qualquer dispositivo.
 
-![image](https://github.com/user-attachments/assets/b52d5f7b-1942-4c53-8887-2111230ecc5e)
+## Tecnologias que Movem o Projeto
 
+- **React.js**: Interface interativa e componentizada.
+- **TypeScript**: Código robusto e tipado.
+- **Tailwind CSS**: Estilização moderna e ágil.
+- **Firebase**: Autenticação e armazenamento em tempo real.
+- **React Hook Form & Zod**: Validação de formulários confiável.
+- **Context API**: Estado global simplificado.
 
-## 🚀 Instalação
+## Decisões Técnicas
 
-Siga os passos abaixo para rodar o projeto localmente:
-
-1. Clone o repositório:
-   ```bash
-   git clone https://github.com/eduardossoares/webcarros.git
-   ```
-
-1. Acesse a pasta do projeto:
-   ```bash
-   cd webcarros
-   ```
-
-1. Instale as dependências:
-   ```bash
-   npm install
-   ```
-
-1. Execute o projeto em desenvolvimento:
-   ```bash
-   npm run dev
-   ```
-
-O projeto estará disponível em http://localhost:3000.
-
-## 🚀 Como usar
-
-1. Crie uma conta utilizando o formulário de cadastro.
-2. Navegue pela home para visualizar todos os carros disponíveis para venda.
-3. Use a barra de pesquisa para localizar carros específicos.
-4. Cadastre seus próprios carros através do sistema de cadastro.
-5. Visualize a lista dos seus carros cadastrados e exclua qualquer anúncio que desejar.
-
-## 📚 Estrutura do Projeto
-src/
-  - components/: Componentes reutilizáveis da interface.
-  - contexts/: Definição e gerenciamento dos contextos usando ContextAPI.
-  - pages/: Páginas da aplicação (Home, Login, etc.).
-  - services/: Configuração e integração com o Firebase.
-  - assets/: Arquivos presentes no projeto.
-  - routes/: Configuração de rotas privadas.
-
-## 📝 Licença
-Este projeto está licenciado sob a licença MIT. Veja o arquivo LICENSE para mais detalhes.
+- Escolhi **React.js** com **TypeScript** para uma base sólida e reutilizável.
+- Usei **Tailwind CSS** para acelerar o design sem perder flexibilidade.
+- **Firebase** foi integrado para autenticação rápida e banco de dados escalável.
+- Optei por **Context API** em vez de Redux para manter o estado leve e direto.
